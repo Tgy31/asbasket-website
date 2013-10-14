@@ -1,4 +1,4 @@
-package com.testjee1;
+package com.objects;
 import com.google.appengine.api.datastore.Key;
 import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.*;

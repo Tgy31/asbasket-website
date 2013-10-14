@@ -1,5 +1,7 @@
 package com.servlet;
-import com.testjee1.*;
+import com.objects.Adherent;
+import com.objects.Equipe;
+import com.objects.Joueur;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
 

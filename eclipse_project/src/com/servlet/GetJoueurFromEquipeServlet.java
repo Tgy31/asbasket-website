@@ -1,4 +1,4 @@
-package com.testjee1;
+package com.servlet;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.googlecode.objectify.ObjectifyService;
+import com.objects.Equipe;
+import com.objects.Joueur;
+import com.objects.Saison;
 
 public class GetJoueurFromEquipeServlet extends HttpServlet {
 	// Enregistrement de la classe persistable auprès d'Objectify

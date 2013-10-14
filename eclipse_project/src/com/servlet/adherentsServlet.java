@@ -1,4 +1,4 @@
-package com.testjee1;
+package com.servlet;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.googlecode.objectify.ObjectifyService;
+import com.objects.Adherent;
 
 public class adherentsServlet extends HttpServlet {
     // Enregistrement de la classe persistable auprès d'Objectify

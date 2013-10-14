@@ -1,4 +1,4 @@
-package com.testjee1;
+package com.objects;
 import com.googlecode.objectify.annotation.*;
 
 @Entity

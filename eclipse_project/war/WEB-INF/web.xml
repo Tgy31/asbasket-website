@@ -7,7 +7,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
 	<servlet>
 		<servlet-name>Adherents</servlet-name>
-		<servlet-class>com.testjee1.adherentsServlet</servlet-class>
+		<servlet-class>com.servlet.adherentsServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Adherents</servlet-name>
@@ -43,7 +43,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<servlet>
 		<servlet-name>GetJoueurFromEquipe</servlet-name>
-		<servlet-class>com.testjee1.GetJoueurFromEquipeServlet</servlet-class>
+		<servlet-class>com.servlet.GetJoueurFromEquipeServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>GetJoueurFromEquipe</servlet-name>
@@ -52,7 +52,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<servlet>
 		<servlet-name>NewAdherent</servlet-name>
-		<servlet-class>com.testjee1.NewAdherentServlet</servlet-class>
+		<servlet-class>com.servlet.NewAdherentServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>NewAdherent</servlet-name>
@@ -65,7 +65,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<servlet>
 		<servlet-name>Equipe</servlet-name>
-		<servlet-class>com.testjee1.EquipeServlet</servlet-class>
+		<servlet-class>com.servlet.EquipeServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Equipe</servlet-name>

@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.VoidWork;
+import com.objects.Adherent;
+import com.objects.Equipe;
+import com.objects.Joueur;
 import com.sun.tools.javac.util.List;
-import com.testjee1.Adherent;
-import com.testjee1.Equipe;
-import com.testjee1.Joueur;
 
 public class RemoveJoueurFromEquipeServlet extends HttpServlet { 
 	// Enregistrement de la classe persistable auprès d'Objectify

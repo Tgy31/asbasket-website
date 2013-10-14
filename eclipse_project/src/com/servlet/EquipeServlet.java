@@ -1,4 +1,4 @@
-package com.testjee1;
+package com.servlet;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
@@ -26,6 +26,9 @@ import com.google.appengine.api.images.*;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.Ref;
+import com.objects.Adherent;
+import com.objects.Equipe;
+import com.objects.Saison;
 
 public class EquipeServlet extends HttpServlet {
 	// Enregistrement de la classe persistable auprès d'Objectify
