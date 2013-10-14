@@ -30,7 +30,7 @@ public class GetJoueurFromEquipeServlet extends HttpServlet {
         	if (sEquipeId != null) {
             	Long lEquipeId = Long.parseLong(sEquipeId);
             	Equipe equipe = ofy().load().type(Equipe.class).id(lEquipeId).now();
-                req.setAttribute("joueurs", equipe.joueurs);
+                req.setAttribute("joueurs", equipe.getJoueurs());
                 this.getServletContext().getRequestDispatcher("/WEB-INF/ajax/getJoueurFromEquipe.jsp").forward(req, resp);
         	}
         } catch (ServletException e) {

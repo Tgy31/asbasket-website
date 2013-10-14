@@ -15,7 +15,31 @@ public class Saison {
     List<Ref<Equipe>> equipesMasculines = new ArrayList<Ref<Equipe>>();
     List<Ref<Equipe>> equipesFeminines = new ArrayList<Ref<Equipe>>();
     
-    public Saison() {};
+    public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public List<Ref<Equipe>> getEquipesMasculines() {
+		return equipesMasculines;
+	}
+
+	public void setEquipesMasculines(List<Ref<Equipe>> equipesMasculines) {
+		this.equipesMasculines = equipesMasculines;
+	}
+
+	public List<Ref<Equipe>> getEquipesFeminines() {
+		return equipesFeminines;
+	}
+
+	public void setEquipesFeminines(List<Ref<Equipe>> equipesFeminines) {
+		this.equipesFeminines = equipesFeminines;
+	}
+
+	public Saison() {};
     
     public String title()
     {

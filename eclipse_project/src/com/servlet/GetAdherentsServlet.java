@@ -8,7 +8,6 @@ import java.util.List;
 import com.googlecode.objectify.ObjectifyService;
 import com.objects.Adherent;
 import com.objects.Equipe;
-import com.testjee1.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

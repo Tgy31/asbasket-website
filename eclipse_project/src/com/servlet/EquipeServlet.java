@@ -14,13 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.io.FilenameUtils;
-import org.omg.CORBA.portable.InputStream;
-
 import com.google.appengine.api.blobstore.*;
 import com.google.appengine.api.images.*;
 import com.googlecode.objectify.Key;
@@ -66,12 +59,12 @@ public class EquipeServlet extends HttpServlet {
 				if (path[1].contains("feminine")) {
 					type = "féminines";
 					Saison saison = ofy().load().type(Saison.class).filter("year", 2013).first().now();
-					rEquipes = saison.equipesFeminines;
+					rEquipes = saison.getEquipesFeminines();
 					req.setAttribute("equipeType", "feminines");
 				} else if (path[1].contains("masculine")) {
 					type = "masculines";
 					Saison saison = ofy().load().type(Saison.class).filter("year", 2013).first().now();
-					rEquipes = saison.equipesMasculines;
+					rEquipes = saison.getEquipesMasculines();
 					req.setAttribute("equipeType", "masculines");
 				} else {
 					resp.sendRedirect("/equipes/masculines/");
@@ -99,7 +92,7 @@ public class EquipeServlet extends HttpServlet {
 				}
 				req.setAttribute("equipe", equipe);
 				if (equipe != null) {
-					System.out.println("Equipe id = " + equipe.id);
+					System.out.println("Equipe id = " + equipe.getId());
 				} else {
 					System.out.println("Equipe id = nul");
 				}
@@ -152,26 +145,26 @@ public class EquipeServlet extends HttpServlet {
 	{
 
 		Saison saison1 = new Saison();
-		saison1.year = 2013;
+		saison1.setYear(2013);
 
 		Equipe equipe1 = new Equipe();
-		equipe1.nom = "Equipe 1";
+		equipe1.setNom("Equipe 1");
 		Equipe equipe2 = new Equipe();
-		equipe2.nom = "Equipe 2";
+		equipe2.setNom("Equipe 2");
 
 		// Enregistrement de l'objet dans le Datastore avec Objectify
 		ofy().save().entities(equipe1).now();
 		ofy().save().entities(equipe2).now();
 
-		Key<Equipe> kEquipe1 = com.googlecode.objectify.Key.create(Equipe.class, equipe1.id);
-		Key<Equipe> kEquipe2 = com.googlecode.objectify.Key.create(Equipe.class, equipe2.id);
+		Key<Equipe> kEquipe1 = com.googlecode.objectify.Key.create(Equipe.class, equipe1.getId());
+		Key<Equipe> kEquipe2 = com.googlecode.objectify.Key.create(Equipe.class, equipe2.getId());
 
-		saison1.equipesMasculines.add(Ref.create(kEquipe1));
-		saison1.equipesMasculines.add(Ref.create(kEquipe2));
+		saison1.getEquipesMasculines().add(Ref.create(kEquipe1));
+		saison1.getEquipesMasculines().add(Ref.create(kEquipe2));
 
 		// Enregistrement de l'objet dans le Datastore avec Objectify
 		ofy().save().entity(saison1).now();
-		System.out.println(equipe1.id);
+		System.out.println(equipe1.getId());
 
 		System.out.println("saison créée");
 	}
@@ -187,9 +180,9 @@ public class EquipeServlet extends HttpServlet {
 		String coachName = req.getParameter("coach");
 		int capitaineIndex = Integer.parseInt((String) req.getParameter("capitaine"));
 
-		equipe.nom = equipeName;
-		equipe.coachName = coachName;
-		equipe.capitaine = capitaineIndex;
+		equipe.setNom(equipeName);
+		equipe.setCoachName(coachName);
+		equipe.setCapitaine(capitaineIndex);
 
 		ofy().save().entity(equipe).now();
 	}
@@ -235,7 +228,7 @@ public class EquipeServlet extends HttpServlet {
 		String urlImage = imagesService.getServingUrl(ServingUrlOptions.Builder.withBlobKey(blobKeys.get(0)));
 
 
-		equipe.photoUrl = urlImage;
+		equipe.setPhotoUrl(urlImage);
 
 		ofy().save().entity(equipe).now();
 	}

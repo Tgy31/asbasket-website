@@ -32,11 +32,11 @@ public class NewAdherentServlet extends HttpServlet {
         // Cration de l'objet
 		Adherent adherent = new Adherent();
 		
-		adherent.firstName = req.getParameter("first_name");
-		adherent.lastName = req.getParameter("last_name");
-		adherent.option = req.getParameter("option");
-		adherent.year = Integer.parseInt(req.getParameter("year"));
-		adherent.mail = req.getParameter("mail");
+		adherent.setFirstName(req.getParameter("first_name"));
+		adherent.setLastName(req.getParameter("last_name"));
+		adherent.setOption(req.getParameter("option"));
+		adherent.setYear(Integer.parseInt(req.getParameter("year")));
+		adherent.setMail(req.getParameter("mail"));
 		
 		// Enregistrement de l'objet dans le Datastore avec Objectify
 		ofy().save().entity(adherent).now();
