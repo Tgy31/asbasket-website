@@ -2,7 +2,7 @@
 <%@ page contentType="text"%>
 <%@ page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="com.testjee1.Adherent"%>
+<%@ page import="com.objects.Adherent"%>
 
 <% 
 out.println("{\"aaData\": [");
