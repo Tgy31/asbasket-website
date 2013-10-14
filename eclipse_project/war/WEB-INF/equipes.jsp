@@ -1,7 +1,7 @@
 <%@ page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="com.testjee1.Saison"%>
-<%@ page import="com.testjee1.Equipe"%>
+<%@ page import="com.objects.Saison"%>
+<%@ page import="com.objects.Equipe"%>
 
 <%@ include file="header.jsp"%>
 
