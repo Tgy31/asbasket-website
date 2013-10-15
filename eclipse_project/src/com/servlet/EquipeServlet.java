@@ -53,17 +53,18 @@ public class EquipeServlet extends HttpServlet {
 				} else {
 					resp.sendRedirect("/equipes/" + path[1] + "/" + saisonIndex + "/");
 				}
+				int nSaisonIndex = Integer.parseInt(saisonIndex);
 				System.out.println("saisonIndex = " + saisonIndex);
 				req.setAttribute("saisonIndex", saisonIndex);
 
 				if (path[1].contains("feminine")) {
 					type = "féminines";
-					Saison saison = ofy().load().type(Saison.class).filter("year", 2013).first().now();
+					Saison saison = ofy().load().type(Saison.class).filter("year", nSaisonIndex).first().now();
 					rEquipes = saison.getEquipesFeminines();
 					req.setAttribute("equipeType", "feminines");
 				} else if (path[1].contains("masculine")) {
 					type = "masculines";
-					Saison saison = ofy().load().type(Saison.class).filter("year", 2013).first().now();
+					Saison saison = ofy().load().type(Saison.class).filter("year", nSaisonIndex).first().now();
 					rEquipes = saison.getEquipesMasculines();
 					req.setAttribute("equipeType", "masculines");
 				} else {
@@ -128,9 +129,9 @@ public class EquipeServlet extends HttpServlet {
 		if (formType != null && formType.equalsIgnoreCase("info")) {
 			this.updateEquipeInfo(req, resp);
 		} else if (formType != null && formType.equalsIgnoreCase("delete")) {
-			
+
 		} else if (formType != null && formType.equalsIgnoreCase("new")) {
-			
+			this.createNewEquipe(req, resp);			
 		} else {
 			this.updateEquipePhoto(req, resp);
 		}
@@ -232,5 +233,72 @@ public class EquipeServlet extends HttpServlet {
 
 		ofy().save().entity(equipe).now();
 	}
+
+	public void createNewEquipe(HttpServletRequest req, HttpServletResponse resp) {
+		try {
+			String[] path = req.getPathInfo().split("/");
+			System.out.print("Path split = ");
+			for (int i = 0; i < path.length; i++) {
+				System.out.print(path[i] + " - ");
+			}
+			System.out.println("");
+			String type = "";
+			List<Ref<Equipe>> rEquipes = new ArrayList<Ref<Equipe>>();
+			if (path.length <= 1) {
+				resp.sendRedirect("/equipes/masculines/");
+			} else {
+
+				String saisonIndex = "2013";
+				String gender = path[1];
+				if (path.length > 2) { 
+					saisonIndex = path[2];
+				} else {
+					resp.sendRedirect("/equipes/" + gender + "/" + saisonIndex + "/");
+				}
+				int nSaisonIndex = Integer.parseInt(saisonIndex);
+				
+
+				String coachName = req.getParameter("coach");
+				String equipeName = req.getParameter("equipeName");
+
+				Equipe equipe = new Equipe();
+				equipe.setNom(equipeName);
+				equipe.setCoachName(coachName);
+
+				// Enregistrement de l'objet dans le Datastore avec Objectify
+				ofy().save().entities(equipe).now();
+
+				Key<Equipe> kEquipe1 = com.googlecode.objectify.Key.create(Equipe.class, equipe.getId());
+				Saison saison = null;
+
+				if (path[1].contains("feminine")) {
+					type = "féminines";
+					saison = ofy().load().type(Saison.class).filter("year", nSaisonIndex).first().now();
+					saison.getEquipesFeminines().add(Ref.create(kEquipe1));
+				} else if (path[1].contains("masculine")) {
+					type = "masculines";
+					saison = ofy().load().type(Saison.class).filter("year", nSaisonIndex).first().now();
+					saison.getEquipesMasculines().add(Ref.create(kEquipe1));
+				} else {
+					resp.sendRedirect("/equipes/" + gender + "/" + saisonIndex + "/");
+				}
+				
+
+
+
+				// Enregistrement de l'objet dans le Datastore avec Objectify
+				ofy().save().entity(saison).now();
+				resp.sendRedirect("/equipes/" + gender + "/" + saisonIndex + "/" + equipe.getId() + "/");
+				
+				
+
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
 
 }
