@@ -21,7 +21,7 @@
 		<div class="panel-heading">Informations générales</div>
 		<div class="panel-body">
 			<div class="col-lg-7">
-				<form class="form-horizontal" action="/equipes/masculines/"
+				<form class="form-horizontal" action="/equipes/<c:out value="${equipeType}" />/"
 					method="POST">
 
 					<div class="form-group">
@@ -76,7 +76,7 @@
 				</form>
 			</div>
 			<div class="col-lg-5">
-				<form class="form-horizontal" action="/equipes/masculines/"
+				<form class="form-horizontal" action="/equipes/<c:out value="${equipeType}" />/"
 					method="POST">
 
 					<input type="hidden" name="formType" value="delete" />
@@ -131,12 +131,16 @@
 	<div class="panel panel-default">
 		<!-- Default panel contents -->
 		<div class="panel-heading">Photo d'équipe</div>
+		<%
+			String uploadUrl = "/equipes/" + request.getAttribute("equipeType") + "/";
+			
+		%>
 
 
 		<div class="panel-body">
 			<div class="col-lg-7">
 				<form class="form-horizontal"
-					action="<%= blobstoreService.createUploadUrl("/equipes/masculines/") %>"
+					action="<%= blobstoreService.createUploadUrl(uploadUrl) %>"
 					method="POST" enctype="multipart/form-data">
 
 					<input type="hidden" name="formType" value="photo" /> <input
