@@ -21,7 +21,7 @@
 		<div class="panel-heading">Informations générales</div>
 		<div class="panel-body">
 			<div class="col-lg-7">
-				<form class="form-horizontal" action="/equipes/masculines/"
+				<form class="form-horizontal" action="/equipes/<c:out value="${equipeType}" />/"
 					method="POST">
 
 					<div class="form-group">
@@ -76,7 +76,7 @@
 				</form>
 			</div>
 			<div class="col-lg-5">
-				<form class="form-horizontal" action="/equipes/masculines/"
+				<form class="form-horizontal" action="/equipes/<c:out value="${equipeType}" />/"
 					method="POST">
 
 					<input type="hidden" name="formType" value="delete" />
