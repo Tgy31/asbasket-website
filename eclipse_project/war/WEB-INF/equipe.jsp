@@ -131,12 +131,16 @@
 	<div class="panel panel-default">
 		<!-- Default panel contents -->
 		<div class="panel-heading">Photo d'équipe</div>
+		<%
+			String uploadUrl = "/equipes/" + request.getAttribute("equipeType") + "/";
+			
+		%>
 
 
 		<div class="panel-body">
 			<div class="col-lg-7">
 				<form class="form-horizontal"
-					action="<%= blobstoreService.createUploadUrl("/equipes/masculines/") %>"
+					action="<%= blobstoreService.createUploadUrl(uploadUrl) %>"
 					method="POST" enctype="multipart/form-data">
 
 					<input type="hidden" name="formType" value="photo" /> <input
