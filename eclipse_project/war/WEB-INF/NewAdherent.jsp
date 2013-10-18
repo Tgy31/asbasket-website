@@ -76,7 +76,7 @@
 
 		<div class="form-group">
 			<div class="col-lg-offset-2 col-lg-4">
-				<button type="submit" class="btn btn-default">Valider</button>
+				<button type="submit" class="btn btn-primary">Valider</button>
 			</div>
 		</div>
 	</form>
