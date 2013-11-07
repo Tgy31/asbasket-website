@@ -24,7 +24,7 @@
 	</div>
 
 
-	<form class="form-horizontal" action="/newadherent/" method="post">
+	<form class="form-horizontal" action="/admin/newadherent/" method="post">
 		<div class="form-group">
 			<label for="inputFirstName" class="col-lg-2 control-label">Prénom</label>
 			<div class="col-lg-4">

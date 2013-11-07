@@ -28,7 +28,7 @@
 			<ul class="dropdown-menu" role="menu">
 			<%
 				for (Saison saison : saisons) {
-					linkUrl = "/equipes/" + request.getAttribute("type") + "/"
+					linkUrl = "/admin/equipes/" + request.getAttribute("type") + "/"
 							+ saison.getYear() + "/";
 			%>
 			<li><a href="<%=linkUrl%>"><%=saison.title()%></a></li>
@@ -53,7 +53,7 @@
 						}
 				%>
 				<li <%=active%> id=<%=iEquipe.getId()%>>
-					<a href='/equipes/<c:out value="${equipeType}" />/<%= saisonIndex %>/<%=iEquipe.getId()%>/'><%=iEquipe.getNom()%></a>
+					<a href='/admin/equipes/<c:out value="${equipeType}" />/<%= saisonIndex %>/<%=iEquipe.getId()%>/'><%=iEquipe.getNom()%></a>
 				</li>
 				<%
 					}
@@ -64,7 +64,7 @@
 					}
 				%>
 				<li <%=active%>>
-					<a href='/equipes/<c:out value="${equipeType}" />/<%= saisonIndex %>/nouvelle-equipe/'> + Nouvelle équipe</a>
+					<a href='/admin/equipes/<c:out value="${equipeType}" />/<%= saisonIndex %>/nouvelle-equipe/'> + Nouvelle équipe</a>
 				</li>
 			</ul>
 		</div>

@@ -21,7 +21,7 @@
 		<div class="panel-heading">Informations générales</div>
 		<div class="panel-body">
 			<div class="col-lg-7">
-				<form class="form-horizontal" action="/equipes/<c:out value="${equipeType}" />/"
+				<form class="form-horizontal" action="/admin/equipes/<c:out value="${equipeType}" />/"
 					method="POST">
 
 					<div class="form-group">
@@ -76,7 +76,7 @@
 				</form>
 			</div>
 			<div class="col-lg-5">
-				<form class="form-horizontal" action="/equipes/<c:out value="${equipeType}" />/"
+				<form class="form-horizontal" action="/admin/equipes/<c:out value="${equipeType}" />/"
 					method="POST">
 
 					<input type="hidden" name="formType" value="delete" />
@@ -132,7 +132,7 @@
 		<!-- Default panel contents -->
 		<div class="panel-heading">Photo d'équipe</div>
 		<%
-			String uploadUrl = "/equipes/" + request.getAttribute("equipeType") + "/";
+			String uploadUrl = "/admin/equipes/" + request.getAttribute("equipeType") + "/";
 			
 		%>
 
