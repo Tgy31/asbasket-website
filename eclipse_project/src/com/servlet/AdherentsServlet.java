@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.googlecode.objectify.ObjectifyService;
 import com.objects.Adherent;
 
-public class adherentsServlet extends HttpServlet {
+public class AdherentsServlet extends HttpServlet {
     // Enregistrement de la classe persistable auprès d'Objectify
     static {
         ObjectifyService.register(Adherent.class);

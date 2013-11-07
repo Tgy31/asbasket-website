@@ -20,7 +20,7 @@ public class NewAdherentServlet extends HttpServlet {
     }
     public void doGet(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/NewAdherent.jsp").forward(req, resp);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/newAdherent.jsp").forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -43,7 +43,7 @@ public class NewAdherentServlet extends HttpServlet {
 		
 		req.setAttribute("actionSucceed", "yes");
         try {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/NewAdherent.jsp").forward(req, resp);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/newAdherent.jsp").forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
