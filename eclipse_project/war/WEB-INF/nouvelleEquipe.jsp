@@ -16,7 +16,7 @@
 		<div class="panel-heading">Informations générales</div>
 		<div class="panel-body">
 			<div class="col-lg-7">
-				<form class="form-horizontal" action='/equipes/<c:out value="${equipeType}" />'
+				<form class="form-horizontal" action='/admin/equipes/<c:out value="${equipeType}" />'
 					method="POST">
 
 					<div class="form-group">

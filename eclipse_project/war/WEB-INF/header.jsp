@@ -40,13 +40,13 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/adherents/">Adhérents</a></li>
+            <li class="active"><a href="/admin/">Home</a></li>
+            <li><a href="/admin/adherents/">Adhérents</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Equipes <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="/equipes/masculines/">Masculines</a></li>
-                <li><a href="/equipes/feminines/">Féminines</a></li>
+                <li><a href="/admin/equipes/masculines/">Masculines</a></li>
+                <li><a href="/admin/equipes/feminines/">Féminines</a></li>
               </ul>
             </li>
           </ul>

@@ -44,14 +44,14 @@ public class EquipeServlet extends HttpServlet {
 			String type = "";
 			List<Ref<Equipe>> rEquipes = new ArrayList<Ref<Equipe>>();
 			if (path.length <= 1) {
-				resp.sendRedirect("/equipes/masculines/");
+				resp.sendRedirect("/admin/equipes/masculines/");
 			} else {
 
 				String saisonIndex = "2013";
 				if (path.length > 2) { 
 					saisonIndex = path[2];
 				} else {
-					resp.sendRedirect("/equipes/" + path[1] + "/" + saisonIndex + "/");
+					resp.sendRedirect("/admin/equipes/" + path[1] + "/" + saisonIndex + "/");
 				}
 				int nSaisonIndex = Integer.parseInt(saisonIndex);
 				System.out.println("saisonIndex = " + saisonIndex);
@@ -68,7 +68,7 @@ public class EquipeServlet extends HttpServlet {
 					rEquipes = saison.getEquipesMasculines();
 					req.setAttribute("equipeType", "masculines");
 				} else {
-					resp.sendRedirect("/equipes/masculines/");
+					resp.sendRedirect("/admin/equipes/masculines/");
 				}
 
 				List<Equipe> listEquipes = new ArrayList<Equipe>();
@@ -245,7 +245,7 @@ public class EquipeServlet extends HttpServlet {
 			String type = "";
 			List<Ref<Equipe>> rEquipes = new ArrayList<Ref<Equipe>>();
 			if (path.length <= 1) {
-				resp.sendRedirect("/equipes/masculines/");
+				resp.sendRedirect("/admin/equipes/masculines/");
 			} else {
 
 				String saisonIndex = "2013";
@@ -253,7 +253,7 @@ public class EquipeServlet extends HttpServlet {
 				if (path.length > 2) { 
 					saisonIndex = path[2];
 				} else {
-					resp.sendRedirect("/equipes/" + gender + "/" + saisonIndex + "/");
+					resp.sendRedirect("/admin/equipes/" + gender + "/" + saisonIndex + "/");
 				}
 				int nSaisonIndex = Integer.parseInt(saisonIndex);
 				
@@ -288,7 +288,7 @@ public class EquipeServlet extends HttpServlet {
 
 				// Enregistrement de l'objet dans le Datastore avec Objectify
 				ofy().save().entity(saison).now();
-				resp.sendRedirect("/equipes/" + gender + "/" + saisonIndex + "/" + equipe.getId() + "/");
+				resp.sendRedirect("/admin/equipes/" + gender + "/" + saisonIndex + "/" + equipe.getId() + "/");
 				
 				
 
